@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
+const routes = require('./routes')
 
+require('./database/mongoose')
 
-app.get('/', (req, res) => {
-  res.json({"message": "hellow"})
-})
+app.use(express.json())
+app.use(routes)
 
 const PORT = process.env.PORT  || 3333
 
